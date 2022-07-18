@@ -1,0 +1,10 @@
+rescript = 1
+rule cp
+  command = cp $i $out
+rule touch
+ command = touch $out
+o FirstRescript.cmi : cp ../bs/src/components/FirstRescript.cmi
+o FirstRescript.cmj : cp ../bs/src/components/FirstRescript.cmj
+o FirstRescript.cmt : cp ../bs/src/components/FirstRescript.cmt
+o FirstRescript.res : cp ../../src/components/FirstRescript.res
+build install.stamp : touch FirstRescript.cmi FirstRescript.cmj 

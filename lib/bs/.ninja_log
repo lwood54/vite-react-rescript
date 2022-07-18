@@ -1,0 +1,6 @@
+# ninja log v6
+0	19	1658106727558942048	src/components/FirstRescript.ast	bc53d529136e1baa
+19	28	1658106727567972283	src/components/FirstRescript.d	48b6bce0f350150a
+28	52	1658106727591973180	src/components/FirstRescript.cmj	f19b43b747f73c05
+28	52	1658106727591973180	src/components/FirstRescript.cmi	f19b43b747f73c05
+28	52	1658106727591973180	../../src/components/FirstRescript.bs.js	f19b43b747f73c05

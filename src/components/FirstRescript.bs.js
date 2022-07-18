@@ -3,7 +3,7 @@
 import * as React from "react";
 
 function FirstRescript(Props) {
-  return React.createElement("div", undefined, "Hello World");
+  return React.createElement("div", undefined, "Hi there Rescript");
 }
 
 var make = FirstRescript;

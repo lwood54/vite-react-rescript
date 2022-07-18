@@ -1,14 +1,18 @@
 rescript = 1
 g_finger := /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/@rescript/react/lib/ocaml/install.stamp
+cleaner = /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/gentype/gentype.exe
 rule astj
-  command = /Users/ljw/.npm/_npx/0c91dff827466f3d/node_modules/rescript/darwin/bsc.exe  -bs-v 9.1.4 -bs-jsx 3  -absname -bs-ast -o $out $i
-o src/components/FirstRescript.ast : astj ../../src/components/FirstRescript.res
+  command = /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/rescript/darwin/bsc.exe  -bs-v 9.1.4 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
 rule deps
-  command = /Users/ljw/.npm/_npx/0c91dff827466f3d/node_modules/rescript/darwin/bsb_helper.exe -hash 6ab8c4fa9102dc08ba7c4a4d5c165647 $in
+  command = /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/rescript/darwin/bsb_helper.exe -hash 3859f1c3910c8c6dfc44b63c60fabbf0 $in
   restat = 1
-o src/components/FirstRescript.d : deps src/components/FirstRescript.ast
+o src/App.d : deps src/App.ast
 rule mij
-  command = /Users/ljw/.npm/_npx/0c91dff827466f3d/node_modules/rescript/darwin/bsc.exe -I src/components -I src/assets -I src -I /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/@rescript/react/lib/ocaml   -bs-package-name first-rescript -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  command = /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/rescript/darwin/bsc.exe -I src/components -I src/assets -I src -I /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/@rescript/react/lib/ocaml   -bs-gentype /Users/ljw/Desktop/Programming/Personal/new_projects/explore/first_rescript/node_modules/gentype/gentype.exe -bs-package-name first-rescript -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/components/FirstRescript.ast : astj ../../src/components/FirstRescript.res
+o src/components/FirstRescript.d : deps src/components/FirstRescript.ast
 o src/components/FirstRescript.cmj src/components/FirstRescript.cmi ../../src/components/FirstRescript.bs.js : mij src/components/FirstRescript.ast

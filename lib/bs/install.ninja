@@ -3,8 +3,12 @@ rule cp
   command = cp $i $out
 rule touch
  command = touch $out
+o App.cmi : cp ../bs/src/App.cmi
+o App.cmj : cp ../bs/src/App.cmj
+o App.cmt : cp ../bs/src/App.cmt
+o App.res : cp ../../src/App.res
 o FirstRescript.cmi : cp ../bs/src/components/FirstRescript.cmi
 o FirstRescript.cmj : cp ../bs/src/components/FirstRescript.cmj
 o FirstRescript.cmt : cp ../bs/src/components/FirstRescript.cmt
 o FirstRescript.res : cp ../../src/components/FirstRescript.res
-build install.stamp : touch FirstRescript.cmi FirstRescript.cmj 
+build install.stamp : touch App.cmi App.cmj FirstRescript.cmi FirstRescript.cmj 
